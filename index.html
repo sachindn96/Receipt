@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            font-family: 'Courier New', monospace; /* For thermal printers */
+            /* box-sizing: border-box; */
+        }
+        .home-page{
+            width: 280px; /* Thermal printer width: 80mm */
+            /* height: 500px; */
+            margin: 0 auto;
+            padding: 4px;
+            font-size: 14px;
+            line-height: 1.6;
+            /* border:2px solid black; */
+            /* background-color: aqua; */
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+        }
+        .heading{
+            font-size: larger;
+            font-weight: bolder;
+            display: flex;
+            align-items: center;
+        }
+        .line{
+            height: 160px;
+            width: 100%;
+            /* background-color: aqua; */
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: row;
+        }
+        .inside{
+            height: 100%;
+            width: 50%;
+            /* background-color: aliceblue; */
+            display: flex;
+            align-items: baseline;
+            justify-content: space-evenly;
+            flex-direction: column;
+        }
+        .first-label{
+            font-weight: bolder;
+            /* font-size: larger; */
+        }
+        .first-text{
+            width: 120px;
+            font-weight: bolder;
+            text-decoration: none;
+        }
+        .second-line{
+            height: 200px;
+            width: 100%;
+            /* background-color: black; */
+            /* background-color:blue; */
+            display: flex;
+            align-items: baseline;
+            justify-content: space-evenly;
+            flex-direction: row;
+        }
+        .second-inside{
+            height: 100%;
+            width: 50%;
+            /* background-color: blue; */
+            display: flex;
+            align-items: baseline;
+            justify-content: space-evenly;
+            flex-direction: column;
+        }
+        .second-part{
+            height: 40px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: baseline;
+
+        }
+        .second-label{
+
+            /* font-size: larger; */
+            font-weight: bolder;
+
+        }
+        .second-text{
+            width: 102px;
+            
+        }
+        .third-text{
+            width: 60px;
+        }
+        @media print {
+            .print-button {
+                display: none;
+            }
+            input, select {
+                border: none !important;
+                background: none !important;
+                outline: none !important;
+            }
+            select {
+                -webkit-appearance: none !important;
+                -moz-appearance: none !important;
+                appearance: none !important;
+                background: none !important;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <main class="home-page">
+        <div class="heading">SALE RECEIPT</div>
+        <div class="line">
+            <div class="inside">
+                <label for="" class="first-label">TICKET NO</label>
+                <label for="" class="first-label">CUSTOMER</label>
+                <label for="" class="first-label">MATERIAL</label>
+                <label for="" class="first-label">VEHICLE NO</label>
+            </div>
+            <div class="inside">
+                <input type="number" class="first-text">
+                <span class="first-text">CASH</span>
+                <select class="first-text">
+                    <option value="">M-SAND</option>
+                    <option value="">P-SAND</option>
+                    <option value="">C-SAND</option>
+                    <option value="">20 MM JELLY</option>
+                    <option value="">40 MM JELLY</option>
+                </select>
+                <select class="first-text">
+                    <option value="KA 41 D 5678">KA 41 D 5678</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </div>
+
+        </div>
+        <div class="second-line">
+            <div class="second-inside">
+                <div class="second-part">
+                    <label for="" class="second-label">GROSS WT:</label>
+                    <input type="number" class="third-text" placeholder="loaded-vehicle">
+                </div>
+                <div class="second-part"></div>
+                <div class="second-part">
+                    <label for="" class="second-label">TARE WT:</label>
+                    <input type="number" class="third-text" placeholder="empty-vehicle">
+                </div>
+                <div class="second-part">
+                    <label for="" class="second-label">NET WT:</label>
+                    <input type="number" class="third-text" placeholder="total-weight">
+                </div>
+                <div class="second-part">
+                    <label for="" class="second-label">Rate:</label>
+                    <span></span>
+                </div>
+            </div>
+            <div class="second-inside">
+                <div class="second-part">
+                    <label for="" class="second-label">TIME:</label>
+                    <input type="text" id="time" class="second-text" placeholder="loaded-vehicle">
+                </div>
+                <div class="second-part">
+                    <label for="" class="second-label">DATE:</label>
+                    <input type="date" class="second-text">
+                </div>
+                <div class="second-part">
+                    <label for="" class="second-label">TIME:</label>
+                    <input type="text" id="time2" class="second-text" placeholder="empty-vehicle">
+                </div>
+                <div class="second-part"></div>
+                <div class="second-part">
+                    <label for="" class="second-label">Amount:</label>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <button class="print-button" onclick="window.print()">Print</button>
+    </main>
+    <!-- <script>
+        function convertTo12HourFormat(time) {
+            let [hour, minute] = time.split(':');
+            let ampm = 'AM';
+            hour = parseInt(hour);
+
+            if (hour >= 12) {
+                ampm = 'PM';
+                if (hour > 12) hour -= 12;
+            } else if (hour === 0) {
+                hour = 12;
+            }
+
+            return `${hour}:${minute} ${ampm}`;
+        }
+
+        // Auto-format time fields to 12-hour format with AM/PM
+        document.getElementById('time').addEventListener('input', function() {
+            let time = this.value;
+            if (time.length === 5) { // Only format when HH:MM is complete
+                this.value = convertTo12HourFormat(time);
+            }
+        });
+
+        document.getElementById('time2').addEventListener('input', function() {
+            let time = this.value;
+            if (time.length === 5) { // Only format when HH:MM is complete
+                this.value = convertTo12HourFormat(time);
+            }
+        });
+    </script> -->
+</body>
+</html>
